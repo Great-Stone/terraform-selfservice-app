@@ -4,7 +4,7 @@
 
 This is an API-based self-service example that creates Cloud resources using Terraform.
 
-![app and tfc](https://raw.githubusercontent.com/Great-Stone/images/master/uPic/Workspaces  lguplus-selfservice  Terraform Cloud 2020-12-06 18-59-54.png)
+![app and tfc](https://raw.githubusercontent.com/Great-Stone/images/master/uPic/Workspaces%20%20lguplus-selfservice%20%20Terraform%20Cloud%202020-12-06%2018-59-54-20201207202701851.png)
 
 
 ## Prerequisite
