@@ -1,0 +1,19 @@
+{
+    "data": {
+        "attributes": {
+            "auto-apply": true,
+            "name": "workspace-gs-selfservice",
+            "terraform_version": "0.13.5",
+            "file-triggers-enabled": true,
+            "working-directory": "/gcp-module01",
+            "trigger-prefixes": ["/gcp-module01/trigger"],
+            "vcs-repo": {
+                "identifier": "Great-Stone/terraform-selfservice-app",
+                "oauth-token-id": "ot-cwYx4AGKcLAtdMKC",
+                "branch": "main",
+                "default-branch": true
+            }
+        },
+        "type": "workspaces"
+    }
+}

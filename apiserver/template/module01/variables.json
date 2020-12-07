@@ -1,0 +1,128 @@
+{
+    "credentials": {
+        "data": {
+            "type": "vars",
+            "attributes": {
+                "key": "credentials",
+                "value": "",
+                "description": "credentials",
+                "category": "terraform",
+                "hcl": false,
+                "sensitive": true
+            },
+            "relationships": {
+                "workspace": {
+                    "data": {
+                        "id": "",
+                        "type": "workspaces"
+                    }
+                }
+            }
+        }
+    },
+    "prefix": {
+        "data": {
+            "type": "vars",
+            "attributes": {
+                "key": "prefix",
+                "value": "",
+                "description": "",
+                "category": "terraform",
+                "hcl": false,
+                "sensitive": false
+            },
+            "relationships": {
+                "workspace": {
+                    "data": {
+                        "id": "",
+                        "type": "workspaces"
+                    }
+                }
+            }
+        }
+    },
+    "machine_type": {
+        "data": {
+            "type": "vars",
+            "attributes": {
+                "key": "machine_type",
+                "value": "",
+                "description": "",
+                "category": "terraform",
+                "hcl": false,
+                "sensitive": false
+            },
+            "relationships": {
+                "workspace": {
+                    "data": {
+                        "id": "",
+                        "type": "workspaces"
+                    }
+                }
+            }
+        }
+    },
+    "boot_disk": {
+        "data": {
+            "type": "vars",
+            "attributes": {
+                "key": "boot_disk",
+                "value": "",
+                "description": "",
+                "category": "terraform",
+                "hcl": false,
+                "sensitive": false
+            },
+            "relationships": {
+                "workspace": {
+                    "data": {
+                        "id": "",
+                        "type": "workspaces"
+                    }
+                }
+            }
+        }
+    },
+    "sql_machine_type": {
+        "data": {
+            "type": "vars",
+            "attributes": {
+                "key": "sql_machine_type",
+                "value": "",
+                "description": "",
+                "category": "terraform",
+                "hcl": false,
+                "sensitive": false
+            },
+            "relationships": {
+                "workspace": {
+                    "data": {
+                        "id": "",
+                        "type": "workspaces"
+                    }
+                }
+            }
+        }
+    },
+    "database_version": {
+        "data": {
+            "type": "vars",
+            "attributes": {
+                "key": "database_version",
+                "value": "",
+                "description": "",
+                "category": "terraform",
+                "hcl": false,
+                "sensitive": false
+            },
+            "relationships": {
+                "workspace": {
+                    "data": {
+                        "id": "",
+                        "type": "workspaces"
+                    }
+                }
+            }
+        }
+    }
+}
