@@ -33,6 +33,9 @@ This is an API-based self-service example that creates Cloud resources using Ter
     - Settings for Git Repo to be accessed from VCS Providers on the left
 
 ### API Server : apiserver
+
+Change the `{MY-ORG}` of `https://app.terraform.io/api/v2/organizations/{MY_ORG}` in the code to the Terraform Cloud Organization that created it.
+
 - An example application created in Nodejs.
     - The version used in the sample configuration is as follows:
         - node : v15.3.0

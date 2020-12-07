@@ -36,6 +36,9 @@ Terraform 을 활용하여 GCP 리소스를 생성하는 API 기반 Self-Service
     - 왼쪽 VCS Providers에서 접근할 Git Repo에 대한 설정
 
 ### API Server
+
+코드내의 `https://app.terraform.io/api/v2/organizations/{MY_ORG}`의 `{MY-ORG}`를 생성한 Terraform Cloud Organization으로 변경해주세요.
+
 - Nodejs로 생성된 예제 애플리케이션입니다.
     - 샘플 구성에 사용된 버전은 다음과 같습니다.
         - node : v15.3.0
