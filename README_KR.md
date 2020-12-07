@@ -4,6 +4,10 @@
 
 Terraform 을 활용하여 GCP 리소스를 생성하는 API 기반 Self-Service예제 입니다.
 
+![app and tfc](https://raw.githubusercontent.com/Great-Stone/images/master/uPic/Workspaces%20%20lguplus-selfservice%20%20Terraform%20Cloud%202020-12-06%2018-59-54-20201207202701851.png)
+
+
+
 
 ## 준비사항
 
