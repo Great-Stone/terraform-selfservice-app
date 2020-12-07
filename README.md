@@ -1,5 +1,7 @@
 # Terraform : Self-service example
 
+[![EN](https://img.shields.io/badge/Localization-EN-brightgreen?style=social)](https://github.com/Great-Stone/terraform-selfservice-app/blob/master/README_EN.md)
+
 Terraform 을 활용하여 GCP 리소스를 생성하는 API 기반 Self-Service예제 입니다.
 
 
