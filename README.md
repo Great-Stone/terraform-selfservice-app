@@ -1,75 +1,74 @@
 # Terraform : Self-service example
 
-[![EN](https://img.shields.io/badge/Localization-EN-brightgreen?style=flat)](https://github.com/Great-Stone/terraform-selfservice-app/blob/master/README_EN.md)
+[![KR](https://img.shields.io/badge/Localization-KR-brightgreen?style=flat)](https://github.com/Great-Stone/terraform-selfservice-app/blob/master/README_KR.md)
 
-Terraform 을 활용하여 GCP 리소스를 생성하는 API 기반 Self-Service예제 입니다.
+This is an API-based self-service example that creates Cloud resources using Terraform.
 
 
-## 준비사항
+## Prerequisite
 
-### Terraform Workspace
-
-- 다음의 항목을 프로비저닝 합니다.
-    - provider.tf : Google 프로파이더를 구성합니다.
-        - 로컬 테스트를 위해 credentials_file을 읽어올 수 있는 분기문이 있습니다.
+### Terraform Workspace : gcp-module01
+- Provision the following items
+    - provider.tf : Configure Google Provider.
+        - There is a branch statement that can read the `credentials_file` for local testing.
             `credentials = var.credentials == "" ? file(var.credentials_file) : var.credentials`
-    - network.tf : vpc-network (기존에 생성된 vpc 데이터를 불러옴)
-    - compute.tf : compute_instance 생성
-    - cloudsql.tf : google sql database 생성
-    - cloudstoragebucket.tf : google storage bucket 생성
-    - output.tf : 프로비저닝 이후 사용하고자하는 출력결과
+    - network.tf : vpc-network (Load existing vpc data)
+    - compute.tf : create compute_instance
+    - cloudsql.tf : create google sql database
+    - cloudstoragebucket.tf : create google storage bucket
+    - output.tf : Output result you want to use after provisioning
 
-- 반복적 사용을 위해 변수들을 구성합니다.
-    - variable.tf : 워크스페이스 구성시 해당 변수 값을 변경하여 생성하면, 동일한 템플릿으로 반복적인 워크스페이스를 구성할 수 있습니다.
+- Configure variables for repeated use.
+    - variable.tf : When creating a workspace by changing the value of the variable, you can configure a repetitive workspace with the same template.
 
 ### Git Repo
-- 리소스 프로비저닝 템플릿 코드를 Git Repo에 올려놓습니다.
-- API용 서버에서 해당 템플릿을 이용하여 새로운 Terraform 워크스페이스를 구성합니다.
-- Terraform Cloud에서 Git Repo에 대한 접근권한이 있어야 합니다.
-    - Terraform Cloud 접속
-    - Organization 선택
-    - 상단 Settings
-    - 왼쪽 VCS Providers에서 접근할 Git Repo에 대한 설정
+- Put the resource provisioning template code on the Git Repo.
+- Configure a new Terraform workspace using the template in the API server.
+- You must have access to the Git Repo in Terraform Cloud.
+    - Visiting Terraform Cloud
+    - Selecting Organization
+    - Click the upper `Settings`
+    - Settings for Git Repo to be accessed from VCS Providers on the left
 
-### API Server
-- Nodejs로 생성된 예제 애플리케이션입니다.
-    - 샘플 구성에 사용된 버전은 다음과 같습니다.
+### API Server : apiserver
+- An example application created in Nodejs.
+    - The version used in the sample configuration is as follows:
         - node : v15.3.0
         - npm : 7.0.14
-    - express가 사용되었습니다.
-    - 시작을 위해 app_example 에서 `npm install`을 실행해 주세요.
-- Google Cloud 접근을 위한 credential json파일을 구성합니다.
+    - `express` was used.
+    - Run `npm install` on app_example to get started.
+- Configure credential json file for Google Cloud access.
     - ex : /app_example/credential.json
-    - 해당 credential을 최초 워크스페이스 생성시 암호화하여 변수로 저장합니다.
-- 디렉토리 설명
-    - public : 페이지와 기존 js 구성
-    - routes : API route 구성
-        - list.js : 워크스페이스 리스트를 불러옵니다.
-        - runs.js : destory를 위한 runs api가 있습니다.
-        - workspaces : 워크스페이스를 생성, 변수 추가, 워크스페이스 삭제를 위한 api가 있습니다.
-    - template : Git Repo의 저장된 템플릿을 위한 Request Body 저장소 입니다.
-        - workspace.json : 워크스페이스를 생성하기위한 값으로 auto-approve가 활성화되어있으므로 주의가 필요
-        - variables.json : 해당 템플릿만을 위한 변수 리스트
-        - destory.json : 워크스페이스의 리소스를 삭제하는 요청 (워크스페이스가 삭제되지는 않음)
-- Terraform 사용자 토큰
-    - routes의 header에 TFE_TOKEN 이 환경변수로 선언되어있습니다.
-    - 다음과 같이 Token을 생성하고 환경변수로 저장하거나 코드상에 넣어서 테스트 합니다.
-        - Terraform Cloud 우측 상단의 사용자 아이콘을 클릭
-        - User settings 클릭
-        - 좌측 Tokens 클릭하여 새로운 토큰을 생성
-- 실행은 `npm start`로 실행하며 포트는 3000번으로 설정되어있습니다.
+    - The credential is encrypted when the workspace is first created and saved as a variable.
+- Directory description
+    - public : Page and existing js configuration
+    - routes : API route
+        - list.js : Bring up the workspace list.
+        - runs.js : There is a runs api for `terraform destroy`.
+        - workspaces : There are APIs for creating workspaces, adding variables, and deleting workspaces.
+    - template : This is the Request Body repository for the saved templates of Git Repo.
+        - workspace.json : Care must be taken as auto-approve is activated as a value for creating a workspace.
+        - variables.json : List of variables for this template only
+        - destory.json : Request to delete a resource in the workspace (the workspace will not be deleted)
+- Terraform user token
+    - `TFE_TOKEN` is declared as an environment variable in the routes header.
+    - Create a token as follows and save it as an environment variable or test it by putting it in the code.
+        - Click the user icon at the top right of Terraform Cloud
+        - Click User settings
+        - Click Tokens on the left to create a new token
+- Execution is executed with `npm start` and the port is set to 3000.
     - http://localhost:3000
 
 ### API UI
 - Workspace List
-    - 생성되어있는 워크스페이스 리스트를 호출합니다.
-    - 리스트의 워크스페이스 카드의 버튼 구성으로 각 동작을 수행합니다.
-        - Workspace Info : 워크스페이스 정보 불러오기 샘플
-        - Output : 테라폼 프로비저닝 이후 확인하고자 하는 Output 데이터 확인
-        - Destroy : 리소스를 제거하며, `terraform destory`와 동일한 동작을 수행
-        - Delete : 워크스페이스를 삭제 되며 **destory되지 않은 상태로 delete되면 해당리소스가 존재하므로 주의**
+    - Call the list of created workspaces.
+    - Each action is performed by the button composition of the workspace card in the list.
+        - Workspace Info : Workspace Information Retrieval Sample
+        - Output : Check the output data you want to check after provisioning Terraform
+        - Destroy : Removes resources and performs the same operation as `terraform destory`
+        - Delete : If the workspace is **deleted and it is deleted without being destoryed**, the corresponding resource exists.
 - Create
-    - 앞서 Terraform 코드에서 변수로 받는 부분을 UI로 받아서 API를 호출
+    - Previously, the part received as a variable in the Terraform code was received as a UI and requested an API.
 
 
 ## Appendix

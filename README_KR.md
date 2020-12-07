@@ -1,6 +1,6 @@
 # Terraform : Self-service example
 
-[![EN](https://img.shields.io/badge/Localization-EN-brightgreen?style=flat)](https://github.com/Great-Stone/terraform-selfservice-app/blob/master/README.md)
+[![EN](https://img.shields.io/badge/Localization-EN-brightgreen?style=flat)](https://github.com/Great-Stone/terraform-selfservice-app)
 
 Terraform 을 활용하여 GCP 리소스를 생성하는 API 기반 Self-Service예제 입니다.
 
@@ -10,7 +10,7 @@ Terraform 을 활용하여 GCP 리소스를 생성하는 API 기반 Self-Service
 ### Terraform Workspace
 
 - 다음의 항목을 프로비저닝 합니다.
-    - provider.tf : Google 프로파이더를 구성합니다.
+    - provider.tf : Google 프로바이더를 구성합니다.
         - 로컬 테스트를 위해 credentials_file을 읽어올 수 있는 분기문이 있습니다.
             `credentials = var.credentials == "" ? file(var.credentials_file) : var.credentials`
     - network.tf : vpc-network (기존에 생성된 vpc 데이터를 불러옴)
