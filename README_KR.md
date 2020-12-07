@@ -55,7 +55,9 @@ Terraform 을 활용하여 GCP 리소스를 생성하는 API 기반 Self-Service
         - runs.js : destory를 위한 runs api가 있습니다.
         - workspaces : 워크스페이스를 생성, 변수 추가, 워크스페이스 삭제를 위한 api가 있습니다.
     - template : Git Repo의 저장된 템플릿을 위한 Request Body 저장소 입니다.
-        - workspace.json : 워크스페이스를 생성하기위한 값으로 auto-approve가 활성화되어있으므로 주의가 필요
+        - workspace.json :
+            - 워크스페이스를 생성하기위한 값으로 auto-approve가 활성화되어있으므로 주의가 필요
+            - **`repo link`를 알맞은 링크로 변경 필요**
         - variables.json : 해당 템플릿만을 위한 변수 리스트
         - destory.json : 워크스페이스의 리소스를 삭제하는 요청 (워크스페이스가 삭제되지는 않음)
 - Terraform 사용자 토큰

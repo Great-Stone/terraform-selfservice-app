@@ -52,7 +52,9 @@ Change the `{MY-ORG}` of `https://app.terraform.io/api/v2/organizations/{MY_ORG}
         - runs.js : There is a runs api for `terraform destroy`.
         - workspaces : There are APIs for creating workspaces, adding variables, and deleting workspaces.
     - template : This is the Request Body repository for the saved templates of Git Repo.
-        - workspace.json : Care must be taken as auto-approve is activated as a value for creating a workspace.
+        - workspace.json : 
+            - Care must be taken as auto-approve is activated as a value for creating a workspace.
+            - **Need to change `repo link` to an appropriate link**
         - variables.json : List of variables for this template only
         - destory.json : Request to delete a resource in the workspace (the workspace will not be deleted)
 - Terraform user token
