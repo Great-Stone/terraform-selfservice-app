@@ -7,10 +7,11 @@ output "gcp_public_ip" {
 
 /*
   Cloud SQL
+  Too many time spend to create cloud sql
 */
-output "gcp_cloud_sql_db_ip" {
-  value = google_sql_database_instance.instance.*.ip_address.0.ip_address
-}
+// output "gcp_cloud_sql_db_ip" {
+//   value = google_sql_database_instance.instance.*.ip_address.0.ip_address
+// }
 
 /*
   Cloud Storage Bucket

@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "fs": "^0.0.1-security",
+    "ini": "^2.0.0",
     "request": "^2.88.2"
   }
 }

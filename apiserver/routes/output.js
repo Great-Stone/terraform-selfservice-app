@@ -1,10 +1,11 @@
-const fs = require("fs");
-const express = require("express");
-const request = require("request");
-const router = express.Router();
+const fs = require("fs")
+const express = require("express")
+const request = require("request")
+const config = require("../config")
+const router = express.Router()
 
 const headers = {
-    Authorization: "Bearer " + process.env.TFE_TOKEN,
+    Authorization: "Bearer " + config.terraform.tf_token,
     "Content-Type": "application/vnd.api+json",
 };
 

@@ -1,14 +1,18 @@
-resource "google_sql_database" "database" {
-  name     = "${var.prefix}-database"
-  instance = google_sql_database_instance.instance.name
-}
+/*
+  Too many time spend to create cloud sql
+*/
 
-resource "google_sql_database_instance" "instance" {
-  name   = "${var.prefix}-database-instance"
-  database_version = "POSTGRES_11"
-  settings {
-    tier = var.sql_machine_type
-  }
+// resource "google_sql_database" "database" {
+//   name     = "${var.prefix}-database"
+//   instance = google_sql_database_instance.instance.name
+// }
 
-  deletion_protection  = "false"
-}
+// resource "google_sql_database_instance" "instance" {
+//   name   = "${var.prefix}-database-instance"
+//   database_version = "POSTGRES_11"
+//   settings {
+//     tier = var.sql_machine_type
+//   }
+
+//   deletion_protection  = "false"
+// }

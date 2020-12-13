@@ -9,6 +9,16 @@ This is an API-based self-service example that creates Cloud resources using Ter
 
 ## Prerequisite
 
+### config.ini
+
+Change the contents of `apiserver/config.ini` to suit each setting
+- organization : Terraform Cloud's organization name
+- postfix : The name added after creating the workspace
+- tf_token : User token to use API for Terraform Cloud
+- oauth_token_id : Token ID of VCS linked to Organization
+
+## Info.
+
 ### Terraform Workspace : gcp-module01
 - Provision the following items
     - provider.tf : Configure Google Provider.
@@ -33,8 +43,6 @@ This is an API-based self-service example that creates Cloud resources using Ter
     - Settings for Git Repo to be accessed from VCS Providers on the left
 
 ### API Server : apiserver
-
-Change the `{MY-ORG}` of `https://app.terraform.io/api/v2/organizations/{MY_ORG}` in the code to the Terraform Cloud Organization that created it.
 
 - An example application created in Nodejs.
     - The version used in the sample configuration is as follows:

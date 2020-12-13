@@ -1,23 +1,25 @@
-const fs = require("fs");
-const express = require("express");
-const request = require("request");
-const router = express.Router();
+const fs = require("fs")
+const express = require("express")
+const request = require("request")
+const config = require("../config")
+const router = express.Router()
 
 const headers = {
-    Authorization: "Bearer " + process.env.TFE_TOKEN,
+    Authorization: "Bearer " + config.terraform.tf_token,
     "Content-Type": "application/vnd.api+json",
 };
 
 const createWorkspace = (req, res, next) => {
     const moduleName = req.body.moduleSelect
-    const workspaceName = req.body.workspaceName + "-gs-selfservice"
+    const workspaceName = req.body.workspaceName + `-${config.workspace.postfix}`
     let rawdata = fs.readFileSync(__dirname + `/../template/${moduleName}/workspace.json`)
     let jsondata = JSON.parse(rawdata)
     jsondata.data.attributes.name = workspaceName
+    jsondata.data.attributes["vcs-repo"]["oauth-token-id"] = config.terraform.oauth_token_id
     console.log(jsondata);
 
     let options = {
-        url: "https://app.terraform.io/api/v2/organizations/gs-selfservice/workspaces",
+        url: `https://app.terraform.io/api/v2/organizations/${config.workspace.organization}/workspaces`,
         method: "POST",
         headers: headers,
         body: JSON.stringify(jsondata),

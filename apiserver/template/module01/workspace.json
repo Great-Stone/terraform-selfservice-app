@@ -9,8 +9,8 @@
             "trigger-prefixes": ["/gcp-module01/trigger"],
             "vcs-repo": {
                 "identifier": "Great-Stone/terraform-selfservice-app",
-                "oauth-token-id": "ot-cwYx4AGKcLAtdMKC",
-                "branch": "main",
+                "oauth-token-id": "",
+                "branch": "master",
                 "default-branch": true
             }
         },

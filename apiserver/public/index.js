@@ -45,7 +45,13 @@ $(document).ready(function(){
     });
 
     $('#goToTFC').click(function() {
-        window.open("https://app.terraform.io/app/gs-selfservice/workspaces");
+        $.ajax({
+            url:'/getorg',
+            type:'GET',
+            success: function(data){
+                window.open(`https://app.terraform.io/app/${data}/workspaces`);
+            }// end
+        });// end ajax
     });
 
     $("#success-alert").hide();

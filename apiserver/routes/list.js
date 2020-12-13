@@ -1,16 +1,17 @@
-const express = require("express");
-const request = require("request");
-const router = express.Router();
+const express = require("express")
+const request = require("request")
+const config = require("../config")
+const router = express.Router()
 
 const headers = {
-    Authorization: "Bearer " + process.env.TFE_TOKEN,
+    Authorization: "Bearer " + config.terraform.tf_token,
     "Content-Type": "application/vnd.api+json",
 };
 
 router.get("/", function (req, res) {
     console.log('Workspace list request')
     let options = {
-        url: "https://app.terraform.io/api/v2/organizations/gs-selfservice/workspaces",
+        url: `https://app.terraform.io/api/v2/organizations/${config.workspace.organization}/workspaces`,
         method: "GET",
         headers: headers
     };

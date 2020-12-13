@@ -7,9 +7,18 @@ Terraform 을 활용하여 GCP 리소스를 생성하는 API 기반 Self-Service
 ![app and tfc](https://raw.githubusercontent.com/Great-Stone/images/master/uPic/Workspaces%20%20lguplus-selfservice%20%20Terraform%20Cloud%202020-12-06%2018-59-54-20201207202701851.png)
 
 
-
-
 ## 준비사항
+
+### config.ini
+
+`apiserver/config.ini`의 내용을 각 설정에 맞게 변경합니다.
+- organization : Terraform Cloud의 organization 이름
+- postfix : Workspace생성시 뒤에 추가되는 이름
+- tf_token : Terraform Cloud에 API를 사용하기 위한 사용자 토큰
+- oauth_token_id : Organization에 연동되어있는 VCS의 토큰 아이디
+
+
+## 구성정보
 
 ### Terraform Workspace
 
@@ -36,8 +45,6 @@ Terraform 을 활용하여 GCP 리소스를 생성하는 API 기반 Self-Service
     - 왼쪽 VCS Providers에서 접근할 Git Repo에 대한 설정
 
 ### API Server
-
-코드내의 `https://app.terraform.io/api/v2/organizations/{MY_ORG}`의 `{MY-ORG}`를 생성한 Terraform Cloud Organization으로 변경해주세요.
 
 - Nodejs로 생성된 예제 애플리케이션입니다.
     - 샘플 구성에 사용된 버전은 다음과 같습니다.
