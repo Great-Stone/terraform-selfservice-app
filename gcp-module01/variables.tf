@@ -1,5 +1,5 @@
 variable "project" {
-  default = "gs-test-282101"
+  default = "hc-ab134eb71a944b4ca489963a70b"
 }
 variable "multi_region" {
   default = "ASIA"
